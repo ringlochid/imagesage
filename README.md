@@ -2,7 +2,7 @@
 
 Static privacy, support, AI-transparency, and licensing pages for ImageSage.
 
-The site is published through GitHub Pages at <https://ringlochid.github.io/imagesage/>. It contains no application source code, analytics, cookies, forms, or backend service.
+The site is published through GitHub Pages at <https://ringlochid.me/imagesage/>. It contains no application source code, analytics, cookies, forms, or backend service.
 
 ## Publishing
 
