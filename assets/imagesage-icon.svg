@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title desc" shape-rendering="geometricPrecision">
+  <title id="title">ImageSage icon</title>
+  <desc id="desc">Four open focus corners surround a central discovery sparkle.</desc>
+  <path fill="#3446D3" d="M7 20.5V13a6 6 0 0 1 6-6h7.5v6H14a1 1 0 0 0-1 1v6.5H7Z"/>
+  <path fill="#20C7E8" d="M27.5 7H35a6 6 0 0 1 6 6v7.5h-6V14a1 1 0 0 0-1-1h-6.5V7Z"/>
+  <path fill="#3446D3" d="M41 27.5V35a6 6 0 0 1-6 6h-7.5v-6H34a1 1 0 0 0 1-1v-6.5h6Z"/>
+  <path fill="#20C7E8" d="M20.5 41H13a6 6 0 0 1-6-6v-7.5h6V34a1 1 0 0 0 1 1h6.5v6Z"/>
+  <path fill="#7557E8" d="M24 13c1.9 6.3 4.7 9.1 11 11-6.3 1.9-9.1 4.7-11 11-1.9-6.3-4.7-9.1-11-11 6.3-1.9 9.1-4.7 11-11Z"/>
+</svg>

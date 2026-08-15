@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ImageSage privacy policy.">
+  <meta name="color-scheme" content="light dark">
+  <title>Privacy policy — ImageSage</title>
+  <link rel="icon" href="assets/imagesage-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="ImageSage home"><img src="assets/imagesage-icon.svg" alt="" width="44" height="44"><span>ImageSage</span></a>
+    <nav aria-label="Primary navigation"><a aria-current="page" href="privacy.html">Privacy</a><a href="ai-transparency.html">AI transparency</a><a href="support.html">Support</a><a href="license.html">Licence</a></nav>
+  </header>
+
+  <main id="content" class="document">
+    <p class="eyebrow">Policy</p>
+    <h1>Privacy policy</h1>
+    <p class="meta">Effective 15 August 2026 · Publisher: RingLochid, an individual developer</p>
+    <p class="lead">ImageSage processes your selected photo folders locally. It does not require an ImageSage account and does not upload your photos, recognized text, searches, or visual-search data to the developer.</p>
+
+    <h2>Information ImageSage accesses</h2>
+    <p>ImageSage accesses supported PNG, JPEG, and WebP files only inside folders you select through Windows. These files and their metadata may contain personal information. To provide its features, ImageSage reads file names, folder paths, file and capture dates, image dimensions, and image pixels.</p>
+
+    <h2>Information ImageSage creates</h2>
+    <p>ImageSage creates a local catalog containing registered-folder information, file identity and metadata, thumbnails, recognized text, visual embeddings, preparation state, saved Smart Collection rules, settings, content-free diagnostic events, and temporary derivatives. Magic Rename creates proposed filename text from images you select. A proposal is not applied unless you confirm it.</p>
+
+    <h2>How information is used</h2>
+    <p>The local information is used to browse selected folders, prepare previews, search by text or visual meaning, save search rules, and perform file actions you explicitly request.</p>
+
+    <h2>Storage, retention, and security</h2>
+    <p>ImageSage stores its catalog and derivatives in application-data storage belonging to the current Windows account. Historical developer-preview builds use the compatibility directory <code>%LOCALAPPDATA%\PhantomOwl</code>; that name may remain so an upgrade does not strand an existing catalog.</p>
+    <p>Removing a folder source removes that source from the catalog and deletes derivatives owned only by that source. It does not delete original photos. Store-package data can also be removed through Windows package management. If you previously ran an unpackaged developer preview, close ImageSage before manually deleting its historical compatibility directory.</p>
+    <p>Local data is protected by the access controls of your Windows user profile and current-user process boundaries. ImageSage does not add separate encryption at rest. Use Windows device encryption or BitLocker if you require encrypted storage.</p>
+
+    <h2>Network use and disclosure</h2>
+    <p>ImageSage contains no developer analytics, advertising, cloud sync, account service, or runtime model downloader. Core indexing, OCR, visual search, and Magic Rename are designed to work without outbound network access. ImageSage does not disclose your library data to the developer or other users.</p>
+    <p>Links you explicitly activate may open your browser, Microsoft Store, or default email app. Windows and Microsoft Store may separately process installation, update, security, or operating-system diagnostic information under your Windows settings and Microsoft's privacy terms. These platform activities do not give the ImageSage developer access to your photo library.</p>
+
+    <h2>Support messages and AI reports</h2>
+    <p>If you email <a href="mailto:support@ringlochid.me">support@ringlochid.me</a>, the developer receives the email address, message, and attachments you choose to send. This information is used to respond, investigate the report, maintain ImageSage, and meet applicable legal or security obligations. ImageSage does not automatically attach diagnostics, images, filenames, recognized text, or paths to an email.</p>
+    <p>Do not send original photos, private filenames or paths, recognized text, databases, credentials, or other sensitive content. Support messages are retained only as reasonably needed for those purposes.</p>
+
+    <h2>Third-party components and local AI</h2>
+    <p>ImageSage includes third-party runtime libraries and local machine-learning models for image decoding, OCR, visual search, and filename suggestions. They run on your device as part of ImageSage. See the <a href="ai-transparency.html">AI transparency note</a> for limitations and reporting.</p>
+
+    <h2>Children</h2>
+    <p>ImageSage is a general-purpose photo utility and is not directed to children. It does not create accounts or knowingly collect children's information for the developer.</p>
+
+    <h2>Changes and contact</h2>
+    <p>This policy will be updated when ImageSage's data practices change. For privacy questions, email <a href="mailto:support@ringlochid.me?subject=ImageSage%20privacy%20question">support@ringlochid.me</a>.</p>
+  </main>
+
+  <footer><p>ImageSage · RingLochid</p><nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="support.html">Support</a><a href="license.html">Licence</a></nav></footer>
+</body>
+</html>
