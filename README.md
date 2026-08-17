@@ -3,13 +3,15 @@
 Landing page plus the privacy, support, AI-transparency and licensing pages for ImageSage.
 
 Published through GitHub Pages at <https://ringlochid.me/imagesage/>. The site contains no
-application source code, analytics, cookies, forms, or backend service.
+application source code, developer analytics, forms, accounts, or backend service. The landing page
+loads Microsoft's official Store badge from `get.microsoft.com` for the direct-install flow.
 
 ## Stack
 
-[Astro](https://astro.build) 7, static output, no client-side JavaScript. Motion is native CSS
-scroll-driven animation and degrades to a static page where it is unsupported or where the visitor
-has asked for reduced motion.
+[Astro](https://astro.build) 7 with static output. A small client-side bundle uses
+[Motion](https://motion.dev/) for one-time scroll reveals and respects reduced-motion preferences.
+Microsoft's hosted Store web component supplies the two download badges and falls back to ordinary
+Store links when JavaScript is unavailable.
 
 ## Local development
 

@@ -1,24 +1,40 @@
 # Internal working notes — this repo is public
 .claude/
 
-# Astro / node
+# Dependencies and local package-manager caches
 node_modules/
+.npm/
+.pnpm-store/
+
+# Astro / build / test output
 dist/
 .astro/
+.vite/
+.cache/
+coverage/
+playwright-report/
+test-results/
 *.tsbuildinfo
 
 # Logs
 npm-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 *.log
 
 # Editor / OS
 .DS_Store
 Thumbs.db
+Desktop.ini
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Env
+# Local environment and temporary files
 .env
 .env.*
 !.env.example
+*.tmp
+*.temp

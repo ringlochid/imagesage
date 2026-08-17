@@ -27,10 +27,21 @@ const SHORT_DESCRIPTION =
         />
         <h1>Find the image you remember.</h1>
         <p class="lead">{SHORT_DESCRIPTION}</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href={STORE_URL} rel="external">
-            Get ImageSage for Windows
-          </a>
+        <div class="hero-actions store-badge store-badge-hero">
+          <ms-store-badge
+            productid="9mt89hd9s6sm"
+            productname="ImageSage"
+            window-mode="direct"
+            theme="dark"
+            size="large"
+            language="en-us"
+            animation="on"
+          ></ms-store-badge>
+          <noscript>
+            <a class="btn btn-primary" href={STORE_URL} rel="external">
+              Get ImageSage for Windows
+            </a>
+          </noscript>
         </div>
         <p class="store-note">Free from Microsoft Store · Windows 11</p>
       </div>
@@ -121,7 +132,7 @@ const SHORT_DESCRIPTION =
           </p>
           <div class="capability-row" aria-label="File actions">
             <span>Move or copy</span>
-            <span>Recycle</span>
+            <span>Delete</span>
             <span>Work in place</span>
           </div>
         </div>
@@ -142,9 +153,28 @@ const SHORT_DESCRIPTION =
     <section class="principles shell" aria-label="ImageSage privacy principles" data-reveal>
       <p class="section-label">Private by design</p>
       <h2>No account. On-device AI. You stay in control.</h2>
-      <a class="btn btn-primary" href={STORE_URL} rel="external">
-        Get ImageSage for Windows
-      </a>
+      <div class="store-badge store-badge-closing">
+        <ms-store-badge
+          productid="9mt89hd9s6sm"
+          productname="ImageSage"
+          window-mode="direct"
+          theme="dark"
+          size="large"
+          language="en-us"
+          animation="on"
+        ></ms-store-badge>
+        <noscript>
+          <a class="btn btn-primary" href={STORE_URL} rel="external">
+            Get ImageSage for Windows
+          </a>
+        </noscript>
+      </div>
     </section>
   </main>
 </BaseLayout>
+
+<script
+  is:inline
+  type="module"
+  src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"
+></script>
