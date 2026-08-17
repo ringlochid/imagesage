@@ -1,4 +1,4 @@
-Copyright © 2026 RingLochid. All rights reserved.
+Copyright © 2026 Leo Zhang. All rights reserved.
 
 This repository contains the official ImageSage website, policy documents, and branding assets. No licence is granted to copy, modify, distribute, sublicense, or reuse this material except as permitted by applicable law.
 

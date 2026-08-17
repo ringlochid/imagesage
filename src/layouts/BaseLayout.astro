@@ -20,8 +20,8 @@ const canonical = new URL(url(current ?? 'index.html'), Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#07080f" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f4f2ed" />
     <title>{title}</title>
     <link rel="canonical" href={canonical.href} />
     <link rel="icon" href={url('assets/imagesage-icon.svg')} type="image/svg+xml" />
@@ -38,5 +38,8 @@ const canonical = new URL(url(current ?? 'index.html'), Astro.site);
     <SiteHeader current={current} />
     <slot />
     <SiteFooter />
+    <script>
+      import '../scripts/reveal';
+    </script>
   </body>
 </html>

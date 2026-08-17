@@ -3,15 +3,12 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { url, STORE_URL } from '../lib/site';
 
-/* Raw 16:9 app captures, not the promo cards. The cards had headlines baked in
-   and cropped to 2.26:1, which read short beside a text column. */
-import shotLibrary from '../assets/shots/gallery.png';
+import shotSearch from '../assets/shots/search-results.png';
 import shotRename from '../assets/shots/magic-rename.png';
 import shotAct from '../assets/shots/select-actions.png';
 
-/* Approved Store short description, quoted verbatim — US spelling intentional. */
 const SHORT_DESCRIPTION =
-  'A private, local AI gallery. Find any photo by what it shows or the words inside it, then let AI rename it.';
+  'A private, local AI gallery built for Windows. Find any photo by what it shows or the words inside it, then let AI rename it.';
 ---
 
 <BaseLayout
@@ -19,9 +16,15 @@ const SHORT_DESCRIPTION =
   description={SHORT_DESCRIPTION}
 >
   <main id="content">
-    <!-- 1 · Hero -->
     <section class="hero shell">
-      <div class="hero-text">
+      <div class="hero-copy" data-reveal>
+        <img
+          class="hero-icon"
+          src={url('assets/imagesage-icon.svg')}
+          alt=""
+          width="72"
+          height="72"
+        />
         <h1>Find the image you remember.</h1>
         <p class="lead">{SHORT_DESCRIPTION}</p>
         <div class="hero-actions">
@@ -29,9 +32,10 @@ const SHORT_DESCRIPTION =
             Get ImageSage for Windows
           </a>
         </div>
+        <p class="store-note">Free from Microsoft Store · Windows 11</p>
       </div>
 
-      <div class="hero-media reveal">
+      <div class="hero-media">
         <video
           src={url('assets/trailer.mp4')}
           poster={url('assets/trailer-poster.jpg')}
@@ -45,88 +49,102 @@ const SHORT_DESCRIPTION =
       </div>
     </section>
 
-    <hr class="rule shell" />
-
-    <!-- 2 · The three searches -->
-    <section class="section shell">
-      <div class="feature reverse">
-        <div class="feature-text reveal">
-          <p class="section-label">Three ways to look</p>
-          <h2>Not one clever search. Three different ones.</h2>
-          <ul class="feature-list">
-            <li><strong>Name and path</strong> — filenames, folders, dates and formats, across every folder you have added at once.</li>
-            <li><strong>Words inside the image</strong> — on-device OCR makes a receipt or a slide findable by what it actually says.</li>
-            <li><strong>Visual meaning</strong> — describe the picture in plain words; no tags to maintain, no albums to curate.</li>
-          </ul>
+    <section class="product-story shell">
+      <div class="story-grid">
+        <div class="story-copy" data-reveal>
+          <p class="section-label">Search naturally</p>
+          <h2>Describe it. Finds it.</h2>
+          <p>
+            One search box can understand what a photo shows, read words with on-device OCR, or
+            narrow the library by name and path.
+          </p>
+          <div class="capability-row" aria-label="Search types">
+            <span>Visual meaning</span>
+            <span>Text in images</span>
+            <span>Name &amp; path</span>
+          </div>
         </div>
-        <div class="shot reveal">
+
+        <figure class="shot" data-reveal data-reveal-delay="0.06">
           <Image
-            src={shotLibrary}
-            alt="The ImageSage gallery showing 278 photos in a grid, with a Search in Gallery box above and a sidebar listing Gallery, Smart collections and the folders My Pictures, animals and photos."
+            src={shotSearch}
+            alt="ImageSage showing ten results for the search ‘two people on a beach’ from folders in My Pictures."
             widths={[720, 1080, 1600]}
-            sizes="(min-width: 1160px) 540px, 92vw"
+            sizes="(min-width: 960px) 680px, 94vw"
             loading="lazy"
           />
-        </div>
+          <figcaption>A real result set from the ImageSage app.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 3 · Magic Rename -->
-    <section class="section shell">
-      <div class="feature">
-        <div class="feature-text reveal">
-          <p class="section-label">Magic Rename</p>
-          <h2>A generated name is a suggestion until you say otherwise.</h2>
+    <section class="product-story shell">
+      <div class="story-grid story-grid-reverse">
+        <div class="story-copy" data-reveal>
+          <p class="section-label">Review before applying</p>
+          <h2>AI rename.</h2>
           <p>
-            Point Magic Rename at a set of images and it proposes a short, descriptive filename for
-            each one.
+            Magic Rename proposes a concise filename for every selected image. Edit each suggestion,
+            review the list, and apply only when it looks right.
           </p>
-          <ul class="feature-list">
-            <li>Every proposal lands in an <strong>editable review list</strong>.</li>
-            <li>Nothing on disk changes until you <strong>confirm</strong>.</li>
-            <li>The model is packaged with the app and runs on your machine.</li>
-          </ul>
-          <p style="margin-top:1.5rem">
-            <a class="text-link" href={url('ai-transparency.html')}>
-              Read the AI transparency note <span aria-hidden="true">→</span>
-            </a>
-          </p>
+          <ol class="workflow-steps">
+            <li><span>1</span>Select</li>
+            <li><span>2</span>Review</li>
+            <li><span>3</span>Confirm</li>
+          </ol>
+          <a class="text-link" href={url('ai-transparency.html')}>
+            How local AI is used <span aria-hidden="true">→</span>
+          </a>
         </div>
-        <div class="shot reveal">
+
+        <figure class="shot" data-reveal data-reveal-delay="0.06">
           <Image
             src={shotRename}
-            alt="The Magic rename dialog: four files, each with an editable generated filename beside its thumbnail, under the note that names are generated locally by AI and should be reviewed before applying, with Rename 4 files and Cancel buttons at the foot."
+            alt="The ImageSage Magic rename dialog showing four editable AI-suggested filenames, with Rename 4 files and Cancel buttons."
             widths={[720, 1080, 1600]}
-            sizes="(min-width: 1160px) 540px, 92vw"
+            sizes="(min-width: 960px) 680px, 94vw"
             loading="lazy"
           />
-        </div>
+          <figcaption>Suggested filenames remain editable until you confirm.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 4 · Act on what you found -->
-    <section class="section shell">
-      <div class="feature reverse">
-        <div class="feature-text reveal">
+    <section class="product-story shell">
+      <div class="story-grid">
+        <div class="story-copy" data-reveal>
           <p class="section-label">Act on the results</p>
-          <h2>Finding the images is only half of it.</h2>
-          <p>A result set is a working selection, not a dead end.</p>
-          <ul class="feature-list">
-            <li>Move, copy, rename or recycle the whole selection in one pass.</li>
-            <li>Runs against <strong>original files in place</strong> — indexing never moves or rewrites anything on its own.</li>
-            <li>Save a search you keep repeating as a <strong>Smart Collection</strong>.</li>
-          </ul>
+          <h2>Select, move, copy, rename or delete.</h2>
+          <p>
+            A result set is ready to work with. Select the images you need and perform a file action
+            without leaving the search; indexing never moves originals on its own.
+          </p>
+          <div class="capability-row" aria-label="File actions">
+            <span>Move or copy</span>
+            <span>Recycle</span>
+            <span>Work in place</span>
+          </div>
         </div>
-        <div class="shot reveal">
+
+        <figure class="shot" data-reveal data-reveal-delay="0.06">
           <Image
             src={shotAct}
-            alt="An ImageSage result set for the search “tiger looking out from a window” with four items selected and a command bar offering Cancel, Magic rename, Delete and Move or copy across the whole selection."
+            alt="An ImageSage result set for ‘tiger looking out from a window’ with four images selected and commands for Magic rename, Delete and Move or copy."
             widths={[720, 1080, 1600]}
-            sizes="(min-width: 1160px) 540px, 92vw"
+            sizes="(min-width: 960px) 680px, 94vw"
             loading="lazy"
           />
-        </div>
+          <figcaption>Actions operate on the selected original files.</figcaption>
+        </figure>
       </div>
+    </section>
+
+    <section class="principles shell" aria-label="ImageSage privacy principles" data-reveal>
+      <p class="section-label">Private by design</p>
+      <h2>No account. On-device AI. You stay in control.</h2>
+      <a class="btn btn-primary" href={STORE_URL} rel="external">
+        Get ImageSage for Windows
+      </a>
     </section>
   </main>
 </BaseLayout>
