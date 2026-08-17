@@ -1,0 +1,25 @@
+---
+import { url, NAV } from '../lib/site';
+
+interface Props {
+  /** Filename of the current page, e.g. "privacy.html", for aria-current. */
+  current?: string;
+}
+const { current } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="shell">
+    <a class="brand" href={url('index.html')} aria-label="ImageSage home">
+      <img src={url('assets/imagesage-icon.svg')} alt="" width="28" height="28" />
+      <span>ImageSage</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      {NAV.map((item) => (
+        <a href={url(item.href)} aria-current={current === item.href ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,20 @@
+---
+import { url } from '../lib/site';
+
+const links = [
+  { href: 'privacy.html', label: 'Privacy' },
+  { href: 'ai-transparency.html', label: 'AI transparency' },
+  { href: 'support.html', label: 'Support' },
+  { href: 'license.html', label: 'Licence' },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>© {year} RingLochid, an individual developer.</p>
+    <nav aria-label="Footer">
+      {links.map((item) => <a href={url(item.href)}>{item.label}</a>)}
+    </nav>
+  </div>
+</footer>

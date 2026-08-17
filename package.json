@@ -1,0 +1,21 @@
+{
+  "name": "imagesage-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public information site for ImageSage",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.2.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "typescript": "^5.9.2"
+  }
+}

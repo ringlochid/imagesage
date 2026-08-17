@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { url } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Filename of this page, e.g. "privacy.html", so the nav can mark itself. */
+  current?: string;
+}
+const { title, description, current } = Astro.props;
+const canonical = new URL(url(current ?? 'index.html'), Astro.site);
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#07080f" />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" href={url('assets/imagesage-icon.svg')} type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ImageSage" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <SiteHeader current={current} />
+    <slot />
+    <SiteFooter />
+  </body>
+</html>

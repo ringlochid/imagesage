@@ -1,13 +1,57 @@
 # ImageSage public site
 
-Static privacy, support, AI-transparency, and licensing pages for ImageSage.
+Landing page plus the privacy, support, AI-transparency and licensing pages for ImageSage.
 
-The site is published through GitHub Pages at <https://ringlochid.me/imagesage/>. It contains no application source code, analytics, cookies, forms, or backend service.
+Published through GitHub Pages at <https://ringlochid.me/imagesage/>. The site contains no
+application source code, analytics, cookies, forms, or backend service.
+
+## Stack
+
+[Astro](https://astro.build) 7, static output, no client-side JavaScript. Motion is native CSS
+scroll-driven animation and degrades to a static page where it is unsupported or where the visitor
+has asked for reduced motion.
+
+## Local development
+
+Requires Node.js 22.12 or later.
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+The dev server runs at <http://localhost:4321/imagesage> — note the `/imagesage` path, which matches
+the base the site is served under in production.
+
+> **If `npm run dev` reports `'astro' is not recognized`**, the machine's `PATH` has grown past the
+> ~8,191 characters `cmd.exe` can receive, so npm's script shell starts with an empty `PATH`. Either
+> prune `PATH`, or bypass the script shell entirely:
+>
+> ```powershell
+> node node_modules/astro/bin/astro.mjs dev
+> ```
+
+| Script | Does |
+|---|---|
+| `npm run dev` | Dev server with hot reload |
+| `npm run build` | Static build into `dist/` |
+| `npm run preview` | Serve the built `dist/` locally |
+| `npm run check` | Type-check `.astro` files |
 
 ## Publishing
 
-GitHub Pages publishes from the root of the `main` branch. Every pushed change to `main` updates the public site.
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and publishes
+`dist/` to Pages. Pages must be set to **Build and deployment → Source: GitHub Actions**.
+
+### Page URLs are load-bearing
+
+`astro.config.mjs` sets `build.format: 'file'` so pages build to `privacy.html` rather than
+`privacy/index.html`. The `.html` URLs are declared to Microsoft Partner Center as the privacy and
+support destinations for the Store listing, and must not move.
 
 ## Copyright
 
-The website content and ImageSage branding are proprietary. See [LICENSE.md](LICENSE.md).
+Website content and ImageSage branding are proprietary. See [LICENSE.md](LICENSE.md).

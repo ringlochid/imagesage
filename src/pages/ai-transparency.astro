@@ -1,23 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How ImageSage uses local AI and how to report inappropriate output.">
-  <meta name="color-scheme" content="light dark">
-  <title>AI transparency — ImageSage</title>
-  <link rel="icon" href="assets/imagesage-icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="ImageSage home"><img src="assets/imagesage-icon.svg" alt="" width="44" height="44"><span>ImageSage</span></a>
-    <nav aria-label="Primary navigation"><a href="privacy.html">Privacy</a><a aria-current="page" href="ai-transparency.html">AI transparency</a><a href="support.html">Support</a><a href="license.html">Licence</a></nav>
-  </header>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
+<BaseLayout
+  title="AI transparency — ImageSage"
+  description="How ImageSage uses local AI and how to report inappropriate output."
+  current="ai-transparency.html"
+>
   <main id="content" class="document">
-    <p class="eyebrow">On-device intelligence</p>
+    <p class="doc-eyebrow">On-device intelligence</p>
     <h1>AI transparency</h1>
     <p class="lead">ImageSage uses on-device machine learning for recognized text, visual search, and optional filename suggestions. It does not send your photos or prompts to an ImageSage cloud service.</p>
 
@@ -35,11 +26,8 @@
         <h2 id="report-title">Report inappropriate output</h2>
         <p>Send only the generated words, ImageSage version, and a general non-identifying image category. Do not send the source image, private text, names, or paths.</p>
       </div>
-      <a class="button" href="mailto:support@ringlochid.me?subject=ImageSage%20AI%20suggestion%20report">Compose report</a>
+      <a class="btn btn-primary" href="mailto:support@ringlochid.me?subject=ImageSage%20AI%20suggestion%20report">Compose report</a>
     </section>
     <p class="meta">Windows opens your default mail app with a pre-addressed draft. Nothing is sent unless you choose Send.</p>
   </main>
-
-  <footer><p>ImageSage · RingLochid</p><nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav></footer>
-</body>
-</html>
+</BaseLayout>

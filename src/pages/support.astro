@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Support — ImageSage"
+  description="ImageSage support and troubleshooting."
+  current="support.html"
+>
+  <main id="content" class="document">
+    <p class="doc-eyebrow">Help</p>
+    <h1>Support</h1>
+    <p class="lead">ImageSage supports Windows 11 x64, build 22000 or later, and local PNG, JPEG, and WebP files.</p>
+
+    <section class="contact-card" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">Contact ImageSage support</h2>
+        <p>Email <a href="mailto:support@ringlochid.me">support@ringlochid.me</a>. Include the ImageSage version, Windows version, what you did, and the visible error message.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:support@ringlochid.me?subject=ImageSage%20support">Compose support email</a>
+    </section>
+
+    <h2>Before reporting a problem</h2>
+    <ul>
+      <li>Confirm that the folder still exists and your Windows account can read it.</li>
+      <li>Open <strong>Settings</strong> and use <strong>Import again</strong> for an unavailable folder source.</li>
+      <li>Allow preparation to finish before judging OCR or visual-search completeness.</li>
+      <li>Install the latest ImageSage update from Microsoft Store and restart the app.</li>
+    </ul>
+
+    <h2>Protect your private content</h2>
+    <div class="callout">
+      <p>Do not attach original photos, recognized text, private filenames or paths, databases, credentials, or secrets. ImageSage does not automatically attach diagnostics or library content to an email.</p>
+    </div>
+
+    <h2>Report an AI-generated suggestion</h2>
+    <p>Magic Rename suggestions can be inaccurate or inappropriate. Nothing changes until you confirm a name. Report only the generated words, the ImageSage version, and a general non-identifying description of the image category.</p>
+    <p><a class="text-link" href="mailto:support@ringlochid.me?subject=ImageSage%20AI%20suggestion%20report">Compose AI suggestion report <span aria-hidden="true">→</span></a></p>
+  </main>
+</BaseLayout>

@@ -1,23 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ImageSage privacy policy.">
-  <meta name="color-scheme" content="light dark">
-  <title>Privacy policy — ImageSage</title>
-  <link rel="icon" href="assets/imagesage-icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="ImageSage home"><img src="assets/imagesage-icon.svg" alt="" width="44" height="44"><span>ImageSage</span></a>
-    <nav aria-label="Primary navigation"><a aria-current="page" href="privacy.html">Privacy</a><a href="ai-transparency.html">AI transparency</a><a href="support.html">Support</a><a href="license.html">Licence</a></nav>
-  </header>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/site';
+---
 
+<BaseLayout
+  title="Privacy policy — ImageSage"
+  description="ImageSage privacy policy."
+  current="privacy.html"
+>
   <main id="content" class="document">
-    <p class="eyebrow">Policy</p>
+    <p class="doc-eyebrow">Policy</p>
     <h1>Privacy policy</h1>
     <p class="meta">Effective 15 August 2026 · Publisher: RingLochid, an individual developer</p>
     <p class="lead">ImageSage processes your selected photo folders locally. It does not require an ImageSage account and does not upload your photos, recognized text, searches, or visual-search data to the developer.</p>
@@ -45,7 +37,7 @@
     <p>Do not send original photos, private filenames or paths, recognized text, databases, credentials, or other sensitive content. Support messages are retained only as reasonably needed for those purposes.</p>
 
     <h2>Third-party components and local AI</h2>
-    <p>ImageSage includes third-party runtime libraries and local machine-learning models for image decoding, OCR, visual search, and filename suggestions. They run on your device as part of ImageSage. See the <a href="ai-transparency.html">AI transparency note</a> for limitations and reporting.</p>
+    <p>ImageSage includes third-party runtime libraries and local machine-learning models for image decoding, OCR, visual search, and filename suggestions. They run on your device as part of ImageSage. See the <a href={url('ai-transparency.html')}>AI transparency note</a> for limitations and reporting.</p>
 
     <h2>Children</h2>
     <p>ImageSage is a general-purpose photo utility and is not directed to children. It does not create accounts or knowingly collect children's information for the developer.</p>
@@ -53,7 +45,4 @@
     <h2>Changes and contact</h2>
     <p>This policy will be updated when ImageSage's data practices change. For privacy questions, email <a href="mailto:support@ringlochid.me?subject=ImageSage%20privacy%20question">support@ringlochid.me</a>.</p>
   </main>
-
-  <footer><p>ImageSage · RingLochid</p><nav aria-label="Footer navigation"><a href="index.html">Home</a><a href="support.html">Support</a><a href="license.html">Licence</a></nav></footer>
-</body>
-</html>
+</BaseLayout>

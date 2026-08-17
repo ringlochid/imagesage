@@ -1,0 +1,24 @@
+# Internal working notes — this repo is public
+.claude/
+
+# Astro / node
+node_modules/
+dist/
+.astro/
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Env
+.env
+.env.*
+!.env.example
