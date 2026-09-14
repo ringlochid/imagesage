@@ -10,9 +10,9 @@ interface Props {
   /** Filename of this page, e.g. "privacy.html", so the nav can mark itself. */
   current?: string;
   structuredData?: Record<string, unknown>[];
-  preloadPoster?: boolean;
+  preloadImage?: string;
 }
-const { title, description, current, structuredData = [], preloadPoster = false } = Astro.props;
+const { title, description, current, structuredData = [], preloadImage } = Astro.props;
 const canonical = new URL(url(current ?? 'index.html'), Astro.site);
 // Reuse the existing, unmodified trailer still for previews.
 const socialImage = new URL(url('assets/trailer-poster.jpg'), Astro.site);
@@ -42,7 +42,7 @@ const pageData = {
     <link rel="canonical" href={canonical.href} />
     <link rel="icon" href={url('assets/imagesage-icon.svg')} type="image/svg+xml" />
     <link rel="sitemap" type="application/xml" href={url('sitemap.xml')} />
-    {preloadPoster && <link rel="preload" as="image" href={url('assets/trailer-poster.jpg')} fetchpriority="high" />}
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ImageSage" />

@@ -24,7 +24,8 @@ Each guide has a distinct task, specific instructions, relevant internal links a
 - Generate `sitemap.xml` from static Astro pages. Do not fabricate `lastmod`, keyword tags, ratings, reviews or search-volume claims.
 - The effective robots file is **`https://ringlochid.me/robots.txt`**, owned by `ringlochid/ringlochid.github.io`. A robots file inside `/imagesage/` would not control this host. Preserve other projects' sitemap entries when adding ImageSage's.
 - Use unique page titles and descriptions, absolute canonicals and social URLs, descriptive alt text, responsive image candidates and explicit media dimensions.
-- Reuse the existing 1280×720 JPEG trailer poster for Open Graph and Twitter previews; preload the displayed poster from the same site-relative URL on the homepage.
+- Reuse the existing 1280×720 JPEG trailer poster for Open Graph and Twitter previews. An identical source copy is compressed to WebP through Astro for the displayed poster, and that exact output URL is preloaded. The original JPEG and video are preserved.
+- Mobile and reduced-motion visitors get a poster and native play controls without downloading the trailer on arrival. Desktop autoplay remains available. This reduces initial media work without removing the demonstration.
 - Include accurate `WebPage`, guide `BreadcrumbList`, and homepage `SoftwareApplication` JSON-LD. The app information is semantic metadata, **not a claim of Google software rich-result eligibility**. Google's software rich result additionally requires a qualifying review or aggregate rating. Do not invent one to satisfy the validator.
 - Keep the existing Microsoft Store direct-install badges, plus a normal visible Store link that works when the badge script fails.
 - Retain the no-analytics website policy. Search Console and Bing Webmaster Tools measure search performance without adding visitor-tracking scripts to the website.

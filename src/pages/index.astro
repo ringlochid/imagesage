@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuideLinks from '../components/GuideLinks.astro';
 import { url, STORE_URL } from '../lib/site';
@@ -7,6 +7,9 @@ import { url, STORE_URL } from '../lib/site';
 import shotSearch from '../assets/shots/search-results.png';
 import shotRename from '../assets/shots/magic-rename.png';
 import shotAct from '../assets/shots/select-actions.png';
+import trailerPoster from '../assets/trailer-poster.jpg';
+
+const displayPoster = await getImage({ src: trailerPoster, width: 1280, format: 'webp', quality: 75 });
 
 const SHORT_DESCRIPTION =
   'Search local photos by description or text inside images with ImageSage for Windows. Offline AI photo search, on-device OCR and editable filename suggestions.';
@@ -32,7 +35,7 @@ const appData = {
   title="ImageSage — Offline AI Photo Search for Windows"
   description={SHORT_DESCRIPTION}
   structuredData={[appData]}
-  preloadPoster
+  preloadImage={displayPoster.src}
 >
   <main id="content">
     <section class="hero shell">
@@ -69,16 +72,16 @@ const appData = {
 
       <div class="hero-media">
         <video
+          id="product-demo"
           src={url('assets/trailer.mp4')}
-          poster={url('assets/trailer-poster.jpg')}
-          autoplay
+          poster={displayPoster.src}
           muted
           loop
           playsinline
           controls
           width="1280"
           height="720"
-          preload="metadata"
+          preload="none"
           aria-label="ImageSage searching a photo library by description and renaming the results"
         ></video>
       </div>
@@ -237,6 +240,21 @@ const appData = {
     </section>
   </main>
 </BaseLayout>
+
+<script>
+  const demo = document.querySelector<HTMLVideoElement>('#product-demo');
+  const autoplayAllowed = window.matchMedia('(min-width: 60rem) and (prefers-reduced-motion: no-preference)');
+  const updatePlayback = () => {
+    if (!demo) return;
+    if (autoplayAllowed.matches) {
+      void demo.play().catch(() => { /* Native controls remain available if autoplay is blocked. */ });
+    } else {
+      demo.pause();
+    }
+  };
+  updatePlayback();
+  autoplayAllowed.addEventListener('change', updatePlayback);
+</script>
 
 <script
   is:inline
