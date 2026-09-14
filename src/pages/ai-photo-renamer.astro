@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import GuideLayout from '../layouts/GuideLayout.astro';
+import { url } from '../lib/site';
+import renameShot from '../assets/shots/magic-rename.png';
+---
+<GuideLayout title="AI Photo Renamer for Windows: Review Local Suggestions | ImageSage" heading="Rename photos with local AI on Windows" description="Use ImageSage Magic Rename to suggest descriptive filenames for selected photos. Edit each suggestion and confirm before changing your original files." current="ai-photo-renamer.html">
+  <p class="lead">Magic Rename proposes filenames based on what a selected image shows. It runs on your PC, and you review the suggestions before applying them. This is useful when names such as IMG_4821.jpg give you little help finding a photo later.</p>
+  <h2>Rename selected photos in ImageSage</h2>
+  <ol>
+    <li><strong>Find and select the images.</strong> Browse an imported folder or <a href={url('search-photos-by-description.html')}>search by description</a>. Select the photos whose filenames you want to change.</li>
+    <li><strong>Choose Magic rename.</strong> ImageSage generates proposed names locally and opens a review dialog showing the original filenames and suggestions.</li>
+    <li><strong>Edit and choose what to include.</strong> Check each suggestion against its photo. Change the proposed name where needed, and deselect images you do not want renamed.</li>
+    <li><strong>Confirm the reviewed set.</strong> Use the dialog’s Rename button when the included names are ready. Cancel if you do not want to apply them.</li>
+  </ol>
+  <figure class="guide-figure">
+    <Image src={renameShot} alt="ImageSage Magic rename review dialog with four editable filename suggestions and Rename 4 files and Cancel buttons." widths={[640, 960, 1440]} sizes="(min-width: 960px) 880px, 94vw" loading="lazy" />
+    <figcaption>Review the proposed names and included images before confirming.</figcaption>
+  </figure>
+  <h2>What changes when you confirm?</h2>
+  <p>Magic Rename changes the names of the selected original files. It is not merely a label inside a separate photo library. The review editor changes the filename stem while keeping the file extension. For example, a JPEG remains a JPEG; renaming is not image conversion.</p>
+  <p>A name like <code>boat-on-a-lake.jpg</code> is an example of a descriptive filename you could review or enter, not a guaranteed AI output. Prefer a short, recognisable description, and add any personal context yourself only if you want it in the filename.</p>
+  <h2>Why reviewing matters</h2>
+  <p>The model can misinterpret a scene, miss details or suggest inappropriate words. It cannot reliably know the identities of people or the private story behind a photo. Treat the suggestion as an editable starting point. If a name is wrong, edit it, exclude that image or cancel.</p>
+  <p>Other applications, documents or workflows may refer to an image by its existing path. Consider those references before confirming a rename, and keep backups for files you need to preserve. The <a href={url('ai-transparency.html')}>AI transparency note</a> explains the model’s limitations.</p>
+  <h2>How is this different from numbered batch renaming?</h2>
+  <p>A numbered rename applies a naming pattern to a group of files. Magic Rename instead proposes a description for each selected image. You can review a group together while editing individual suggestions, which is useful when the images contain different subjects.</p>
+  <h2>Can I use it offline?</h2>
+  <p>Yes. The model is packaged with ImageSage and generates suggestions on your device. No ImageSage account or photo upload is required. Microsoft Store installation and updates use a connection. Read <a href={url('privacy.html')}>how ImageSage handles your files</a>, or visit <a href={url('support.html')}>support</a> if suggestions cannot be generated.</p>
+</GuideLayout>

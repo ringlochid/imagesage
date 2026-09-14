@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import GuideLinks from '../components/GuideLinks.astro';
+import { url, STORE_URL } from '../lib/site';
+
+interface Props {
+  title: string;
+  heading: string;
+  description: string;
+  current: string;
+}
+const { title, heading, description, current } = Astro.props;
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'ImageSage', item: new URL(url('index.html'), Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: new URL(url('guides.html'), Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: heading, item: new URL(url(current), Astro.site).href },
+  ],
+};
+---
+<BaseLayout title={title} description={description} current={current} structuredData={[breadcrumbs]}>
+  <main id="content" class="document guide-document">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href={url('index.html')}>ImageSage</a><span aria-hidden="true">/</span>
+      <a href={url('guides.html')}>Guides</a><span aria-hidden="true">/</span>
+      <span aria-current="page">{heading}</span>
+    </nav>
+    <article>
+      <p class="doc-eyebrow">ImageSage guide · Windows 10/11</p>
+      <h1>{heading}</h1>
+      <slot />
+    </article>
+    <section class="contact-card" aria-labelledby="guide-download">
+      <div>
+        <h2 id="guide-download">Try it with your own image folders</h2>
+        <p>ImageSage is free from Microsoft Store. Windows 10 22H2 or Windows 11, x64. PNG, JPEG and WebP images.</p>
+      </div>
+      <a class="btn btn-primary" href={STORE_URL} rel="external">Get ImageSage for Windows</a>
+    </section>
+    <section class="related-guides" aria-labelledby="related-guides-heading">
+      <h2 id="related-guides-heading">More ways to work with your images</h2>
+      <GuideLinks exclude={current} />
+    </section>
+  </main>
+</BaseLayout>

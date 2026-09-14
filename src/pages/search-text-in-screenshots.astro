@@ -1,0 +1,35 @@
+---
+import GuideLayout from '../layouts/GuideLayout.astro';
+import { url } from '../lib/site';
+---
+<GuideLayout title="How to Search Text Inside Screenshots on Windows | ImageSage" heading="Search text inside screenshots on Windows" description="Find saved screenshots and receipts by the words inside them. Use ImageSage’s offline OCR, quoted phrases and file filters to search local image folders." current="search-text-in-screenshots.html">
+  <p class="lead">A screenshot’s filename rarely tells you which error message, receipt or conversation it contains. ImageSage uses on-device optical character recognition (OCR) to make visible words searchable across the image folders you choose.</p>
+  <h2>Search your saved screenshots</h2>
+  <ol>
+    <li><strong>Add the folder containing your screenshots.</strong> Select <strong>Import</strong>, or open Settings and choose <strong>Add folder</strong>. Include the folders where you actually save screenshots and downloaded images.</li>
+    <li><strong>Wait for OCR preparation.</strong> Finding a file and recognising its text are separate steps. Let the OCR progress finish before treating an empty search as proof that an image is absent.</li>
+    <li><strong>Enter words you remember.</strong> Plain text searches broadly. To require an exact recognised phrase, surround it with straight double quotes, for example <code>"access denied"</code>.</li>
+    <li><strong>Open a result and check the original.</strong> OCR can misread characters. Confirm the visible text before copying a value or relying on a result.</li>
+  </ol>
+  <h2>Example searches to adapt</h2>
+  <div class="table-scroll">
+    <table>
+      <caption>Search syntax and when to use it</caption>
+      <thead><tr><th scope="col">Query</th><th scope="col">Use it when…</th></tr></thead>
+      <tbody>
+        <tr><td><code>"access denied"</code></td><td>You remember that exact phrase in an error screenshot.</td></tr>
+        <tr><td><code>"order number"</code></td><td>You want an image containing those recognised words together.</td></tr>
+        <tr><td><code>"access denied" type:png</code></td><td>You want the phrase match restricted to PNG files.</td></tr>
+        <tr><td><code>filename:receipt</code></td><td>The word is in the filename; this filters filenames rather than requiring OCR text.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>These examples explain the query syntax. They only return matching images that exist in your selected, prepared library. ImageSage searches local PNG, JPEG and WebP images; it does not search live browser pages or the text of PDF documents.</p>
+  <h2>When an exact phrase finds nothing</h2>
+  <p>An exact search depends on what OCR recognised, which may differ from what you see. Small letters, blur, unusual fonts and low contrast can make text harder to read. Try one distinctive word, remove the quotes for a broader search, or search for a shorter phrase. Also check the current folder scope and whether the image has finished OCR preparation.</p>
+  <h2>When to use a description instead</h2>
+  <p>If you remember the picture’s appearance but none of its words, <a href={url('search-photos-by-description.html')}>describe its subject or scene</a>. A phrase search such as <code>"red bicycle"</code> asks for recognised words; the unquoted description <code>red bicycle</code> can also help retrieve images by visual meaning.</p>
+  <h2>Does OCR send my screenshots to a server?</h2>
+  <p>No. ImageSage recognises text on your PC and stores it in its local catalog. Your screenshots and recognised text are not uploaded to the developer. The catalog is protected by your Windows user profile and does not add its own encryption at rest. Read the <a href={url('privacy.html')}>privacy and storage details</a>.</p>
+  <p>If OCR remains unavailable after preparation, follow the <a href={url('support.html')}>support checks</a>. You do not need to send private screenshots or recognised text to report a preparation problem.</p>
+</GuideLayout>

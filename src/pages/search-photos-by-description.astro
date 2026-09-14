@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import GuideLayout from '../layouts/GuideLayout.astro';
+import { url } from '../lib/site';
+import searchShot from '../assets/shots/search-results.png';
+---
+<GuideLayout title="How to Search Photos by Description on Windows | ImageSage" heading="Search photos by description on Windows" description="Find local photos by describing their subjects and scenes. Learn ImageSage’s offline image search, query tips and what to check when results are missing." current="search-photos-by-description.html">
+  <p class="lead">You remember two people on a beach, but the photo is called something like IMG_4821.jpg. ImageSage lets you search your selected folders using a description of the picture, without uploading your library or manually tagging each file.</p>
+  <h2>Find a photo in four steps</h2>
+  <ol>
+    <li><strong>Add your photo folders.</strong> Use <strong>Import</strong> in ImageSage, or <strong>Add folder</strong> in Settings. Choose folders containing PNG, JPEG or WebP images. Indexing reads the files in place.</li>
+    <li><strong>Let visual search prepare.</strong> Thumbnails may appear before the visual index is ready. Wait for search preparation to finish so the images you want can participate in a search.</li>
+    <li><strong>Describe the scene in the search box.</strong> Try <code>two people on a beach</code>. Press Enter to run the search. Begin in Gallery when you want to search across your library rather than a selected folder.</li>
+    <li><strong>Review the results and refine.</strong> Open likely matches to check them. If the results are too broad, add one distinctive detail, such as an object, colour or setting.</li>
+  </ol>
+  <figure class="guide-figure">
+    <Image src={searchShot} alt="ImageSage displaying ten photo results for the query ‘two people on a beach’." widths={[640, 960, 1440]} sizes="(min-width: 960px) 880px, 94vw" loading="lazy" />
+    <figcaption>A real ImageSage search result. Matches depend on the contents of your own library.</figcaption>
+  </figure>
+  <h2>What makes a useful description?</h2>
+  <p>Describe what is visible rather than information the picture cannot show. For a holiday photo, <code>boat on a lake near mountains</code> gives the search more visual information than <code>my favourite trip</code>. These are example queries to adapt to your own images, not guaranteed matches.</p>
+  <ul>
+    <li>Start with the main subject: a dog, a bicycle or a group of people.</li>
+    <li>Add the setting or action: on a beach, in snow or sitting at a table.</li>
+    <li>If a long description is unhelpful, shorten it to the most distinctive visible details.</li>
+  </ul>
+  <h2>Descriptions, visible words and filenames are different clues</h2>
+  <p>Visual search estimates how well an image matches the meaning of a description. It does not identify a person or guarantee that every detail matches. If you remember words printed in the image, use <a href={url('search-text-in-screenshots.html')}>text search with OCR</a>. If you know the filename, try a filename filter such as <code>filename:holiday</code>.</p>
+  <h2>Why might a photo be missing?</h2>
+  <p>Check that its folder is included, the file is in a supported format and visual preparation has finished. Also check whether you are searching only one folder. An approximate visual match can still be missed; try a simpler description and browse likely folders. RAW, HEIC and video files are outside the supported PNG, JPEG and WebP set.</p>
+  <p>The search runs locally after installation. There is no ImageSage account or cloud upload. See <a href={url('privacy.html')}>the privacy policy</a> for storage details, or <a href={url('support.html')}>support</a> if preparation fails.</p>
+</GuideLayout>

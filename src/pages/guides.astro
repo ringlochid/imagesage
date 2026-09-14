@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GuideLinks from '../components/GuideLinks.astro';
+import { url, STORE_URL } from '../lib/site';
+---
+<BaseLayout title="Photo Search & AI Rename Guides for Windows | ImageSage" description="Learn to search local photos by description, find text inside screenshots and review AI filename suggestions with ImageSage for Windows." current="guides.html">
+  <main id="content" class="document guide-document">
+    <p class="doc-eyebrow">Practical guides</p>
+    <h1>Find and organise the images on your PC.</h1>
+    <p class="lead">Start with what you remember: a scene, some words, or a photo that needs a useful filename. These guides walk through ImageSage’s local search and rename tools.</p>
+    <GuideLinks />
+    <h2>Before you start</h2>
+    <p><a href={STORE_URL}>Install ImageSage from Microsoft Store</a>, then choose the folders you want to search. Your images stay in those folders while ImageSage prepares a local index. Allow text recognition and visual-search preparation to finish before assessing the results.</p>
+    <p>You need Windows 10 22H2 (build 19045) or Windows 11 on an x64 PC. Supported image formats are PNG, JPEG and WebP. Indexing, OCR, visual search and Magic Rename run on your device; installing and updating through Microsoft Store requires a connection.</p>
+    <h2>Choose the right search</h2>
+    <ul>
+      <li><strong>Remember what the picture shows?</strong> Start with the photo-description guide.</li>
+      <li><strong>Remember words visible in the picture?</strong> Start with the screenshot-text guide.</li>
+      <li><strong>Already found the photos?</strong> Use the rename guide to review new filenames before changing them.</li>
+    </ul>
+    <p>For preparation issues or missing results, visit <a href={url('support.html')}>ImageSage support</a>. Read <a href={url('privacy.html')}>how your library stays local</a> and the <a href={url('ai-transparency.html')}>AI limitations</a> before relying on generated suggestions.</p>
+  </main>
+</BaseLayout>

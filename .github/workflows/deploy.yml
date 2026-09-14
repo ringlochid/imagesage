@@ -27,6 +27,8 @@ jobs:
       - uses: withastro/action@v6
         with:
           node-version: 22
+      - name: Check built SEO and public URL contracts
+        run: npm run check:seo
 
   deploy:
     needs: build

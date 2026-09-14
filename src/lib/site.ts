@@ -11,9 +11,26 @@ export const url = (path: string) => `${base}/${path.replace(/^\/+/, '')}`;
 export const STORE_URL = 'https://apps.microsoft.com/store/detail/9MT89HD9S6SM';
 export const SUPPORT_EMAIL = 'support@ringlochid.me';
 
+export const GUIDES = [
+  {
+    href: 'search-photos-by-description.html',
+    label: 'Search photos by description',
+    description: 'Find a photo by its subject or scene, even when you cannot remember the filename.',
+  },
+  {
+    href: 'search-text-in-screenshots.html',
+    label: 'Search text inside screenshots',
+    description: 'Use local OCR to find screenshots, receipts and other images by the words they contain.',
+  },
+  {
+    href: 'ai-photo-renamer.html',
+    label: 'Rename photos with local AI',
+    description: 'Turn selected photos into editable filename suggestions, then review before applying.',
+  },
+];
+
 export const NAV = [
-  { href: 'privacy.html', label: 'Privacy' },
-  { href: 'ai-transparency.html', label: 'AI transparency' },
+  { href: 'guides.html', label: 'Guides' },
   { href: 'support.html', label: 'Support' },
-  { href: 'license.html', label: 'Licence' },
+  { href: 'privacy.html', label: 'Privacy' },
 ];

@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/site';
 ---
 
 <BaseLayout
-  title="Support — ImageSage"
-  description="ImageSage support and troubleshooting."
+  title="ImageSage Support — Photo Search & Setup Troubleshooting"
+  description="Get help with ImageSage photo search, folder access, OCR preparation and Magic Rename. Check Windows requirements and contact support without sharing private images."
   current="support.html"
 >
   <main id="content" class="document">
@@ -21,6 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <h2>Before reporting a problem</h2>
+    <p>New to ImageSage? Start with the <a href={url('guides.html')}>photo search and rename guides</a> for search examples and step-by-step instructions.</p>
     <ul>
       <li>Confirm that the folder still exists and your Windows account can read it.</li>
       <li>Open <strong>Settings</strong> and use <strong>Import again</strong> for an unavailable folder source.</li>

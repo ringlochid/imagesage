@@ -1,0 +1,13 @@
+---
+import { GUIDES, url } from '../lib/site';
+interface Props { exclude?: string }
+const { exclude } = Astro.props;
+---
+<div class="guide-grid">
+  {GUIDES.filter((guide) => guide.href !== exclude).map((guide) => (
+    <a class="guide-card" href={url(guide.href)}>
+      <h3>{guide.label} <span aria-hidden="true">→</span></h3>
+      <p>{guide.description}</p>
+    </a>
+  ))}
+</div>

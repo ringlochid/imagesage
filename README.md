@@ -42,6 +42,9 @@ the base the site is served under in production.
 | `npm run build` | Static build into `dist/` |
 | `npm run preview` | Serve the built `dist/` locally |
 | `npm run check` | Type-check `.astro` files |
+| `npm run check:seo` | Check built metadata, links, images, sitemap and public URL contracts |
+
+See [the SEO strategy and maintenance notes](docs/seo.md) for the content plan, researched guidance, webmaster setup and live verification command.
 
 ## Publishing
 

@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GuideLinks from '../components/GuideLinks.astro';
 import { url, STORE_URL } from '../lib/site';
 
 import shotSearch from '../assets/shots/search-results.png';
@@ -8,16 +9,34 @@ import shotRename from '../assets/shots/magic-rename.png';
 import shotAct from '../assets/shots/select-actions.png';
 
 const SHORT_DESCRIPTION =
-  'A private, local AI gallery built for Windows. Find any photo by what it shows or the words inside it, then let AI rename it.';
+  'Search local photos by description or text inside images with ImageSage for Windows. Offline AI photo search, on-device OCR and editable filename suggestions.';
+const appData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': new URL(url('index.html#app'), Astro.site).href,
+  name: 'ImageSage',
+  url: new URL(url('index.html'), Astro.site).href,
+  description: SHORT_DESCRIPTION,
+  applicationCategory: 'MultimediaApplication',
+  operatingSystem: 'Windows 10 22H2 (build 19045) or Windows 11, x64',
+  isAccessibleForFree: true,
+  downloadUrl: STORE_URL,
+  offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD', url: STORE_URL },
+  author: { '@type': 'Person', name: 'Leo Zhang' },
+  featureList: ['Offline photo search by description', 'On-device OCR text search', 'Reviewed AI filename suggestions'],
+  screenshot: new URL(url('assets/trailer-poster.jpg'), Astro.site).href,
+};
 ---
 
 <BaseLayout
-  title="ImageSage — Find the image you remember"
+  title="ImageSage — Offline AI Photo Search for Windows"
   description={SHORT_DESCRIPTION}
+  structuredData={[appData]}
+  preloadPoster
 >
   <main id="content">
     <section class="hero shell">
-      <div class="hero-copy" data-reveal>
+      <div class="hero-copy">
         <img
           class="hero-icon"
           src={url('assets/imagesage-icon.svg')}
@@ -25,8 +44,9 @@ const SHORT_DESCRIPTION =
           width="72"
           height="72"
         />
+        <p class="section-label">Offline AI photo search for Windows</p>
         <h1>Find the image you remember.</h1>
-        <p class="lead">{SHORT_DESCRIPTION}</p>
+        <p class="lead">Search your photos by what they show or the words inside them. ImageSage runs AI search, OCR and filename suggestions on your PC, with no account or photo upload.</p>
         <div class="hero-actions store-badge store-badge-hero">
           <ms-store-badge
             productid="9mt89hd9s6sm"
@@ -44,6 +64,7 @@ const SHORT_DESCRIPTION =
           </noscript>
         </div>
         <p class="store-note">Free from Microsoft Store · Windows 10/11</p>
+        <a class="store-fallback" href={STORE_URL} rel="external">View ImageSage in Microsoft Store</a>
       </div>
 
       <div class="hero-media">
@@ -54,6 +75,9 @@ const SHORT_DESCRIPTION =
           muted
           loop
           playsinline
+          controls
+          width="1280"
+          height="720"
           preload="metadata"
           aria-label="ImageSage searching a photo library by description and renaming the results"
         ></video>
@@ -64,7 +88,7 @@ const SHORT_DESCRIPTION =
       <div class="story-grid">
         <div class="story-copy" data-reveal>
           <p class="section-label">Search naturally</p>
-          <h2>Describe it. Finds it.</h2>
+          <h2>Search photos by description or text.</h2>
           <p>
             One search box can understand what a photo shows, read words with on-device OCR, or
             narrow the library by name and path.
@@ -74,13 +98,15 @@ const SHORT_DESCRIPTION =
             <span>Text in images</span>
             <span>Name &amp; path</span>
           </div>
+          <a class="text-link story-guide-link" href={url('search-photos-by-description.html')}>How to search by description <span aria-hidden="true">→</span></a>
+          <a class="text-link story-guide-link" href={url('search-text-in-screenshots.html')}>Find words inside screenshots <span aria-hidden="true">→</span></a>
         </div>
 
         <figure class="shot" data-reveal data-reveal-delay="0.06">
           <Image
             src={shotSearch}
             alt="ImageSage showing ten results for the search ‘two people on a beach’ from folders in My Pictures."
-            widths={[720, 1080, 1600]}
+            widths={[400, 720, 1080, 1600]}
             sizes="(min-width: 960px) 680px, 94vw"
             loading="lazy"
           />
@@ -93,7 +119,7 @@ const SHORT_DESCRIPTION =
       <div class="story-grid story-grid-reverse">
         <div class="story-copy" data-reveal>
           <p class="section-label">Review before applying</p>
-          <h2>AI rename.</h2>
+          <h2>Rename photos with local AI.</h2>
           <p>
             Magic Rename proposes a concise filename for every selected image. Edit each suggestion,
             review the list, and apply only when it looks right.
@@ -103,8 +129,8 @@ const SHORT_DESCRIPTION =
             <li><span>2</span>Review</li>
             <li><span>3</span>Confirm</li>
           </ol>
-          <a class="text-link" href={url('ai-transparency.html')}>
-            How local AI is used <span aria-hidden="true">→</span>
+          <a class="text-link" href={url('ai-photo-renamer.html')}>
+            How to review AI filenames <span aria-hidden="true">→</span>
           </a>
         </div>
 
@@ -112,7 +138,7 @@ const SHORT_DESCRIPTION =
           <Image
             src={shotRename}
             alt="The ImageSage Magic rename dialog showing four editable AI-suggested filenames, with Rename 4 files and Cancel buttons."
-            widths={[720, 1080, 1600]}
+            widths={[400, 720, 1080, 1600]}
             sizes="(min-width: 960px) 680px, 94vw"
             loading="lazy"
           />
@@ -141,12 +167,51 @@ const SHORT_DESCRIPTION =
           <Image
             src={shotAct}
             alt="An ImageSage result set for ‘tiger looking out from a window’ with four images selected and commands for Magic rename, Delete and Move or copy."
-            widths={[720, 1080, 1600]}
+            widths={[400, 720, 1080, 1600]}
             sizes="(min-width: 960px) 680px, 94vw"
             loading="lazy"
           />
           <figcaption>Actions operate on the selected original files.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="guide-section shell" aria-labelledby="guides-heading">
+      <p class="section-label">Start with what you remember</p>
+      <h2 id="guides-heading">Three ways to find and organise your images.</h2>
+      <GuideLinks />
+    </section>
+
+    <section class="faq-section shell" aria-labelledby="questions-heading">
+      <div>
+        <p class="section-label">Before you download</p>
+        <h2 id="questions-heading">ImageSage questions, answered.</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Is ImageSage free?</summary>
+          <p>Yes. ImageSage is free from Microsoft Store and does not require an ImageSage account.</p>
+        </details>
+        <details>
+          <summary>Can I search my photos offline?</summary>
+          <p>Yes. Indexing, OCR, visual search and Magic Rename run on your PC using packaged models. Installing and updating through Microsoft Store requires a connection. Your photo library and searches are not uploaded to the developer. Read the <a href={url('privacy.html')}>privacy policy</a>.</p>
+        </details>
+        <details>
+          <summary>Which Windows versions and image formats are supported?</summary>
+          <p>ImageSage supports Windows 10 22H2 (build 19045) and Windows 11 on x64 devices. It reads local PNG, JPEG and WebP images. RAW, HEIC and video files are not part of that supported format set.</p>
+        </details>
+        <details>
+          <summary>Can I find text inside screenshots?</summary>
+          <p>Yes. On-device OCR makes recognised words searchable. Let OCR preparation finish, then search for the words or use quotes for an exact recognised phrase. Follow the <a href={url('search-text-in-screenshots.html')}>screenshot search guide</a>.</p>
+        </details>
+        <details>
+          <summary>Does importing a folder move or rename my files?</summary>
+          <p>No. Indexing reads your selected folders in place. File actions such as move, copy, delete and rename happen when you request them. Magic Rename shows editable suggestions and only applies the names you confirm.</p>
+        </details>
+        <details>
+          <summary>Why are some search results missing?</summary>
+          <p>Check that the folder is included and search preparation has finished. OCR can misread text and visual matching is approximate, so try a shorter phrase or a different description. Visit <a href={url('support.html')}>support and troubleshooting</a> for preparation issues.</p>
+        </details>
       </div>
     </section>
 

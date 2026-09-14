@@ -5,8 +5,6 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
 
 if (!reducedMotion && targets.length > 0) {
-  document.documentElement.dataset.motion = 'ready';
-
   requestAnimationFrame(() => {
     inView(
       targets,
@@ -17,11 +15,11 @@ if (!reducedMotion && targets.length > 0) {
         animate(
           target,
           {
-            opacity: [0, 1],
-            transform: ['translate3d(0, 1.6rem, 0) scale(0.985)', 'translate3d(0, 0, 0) scale(1)'],
+            // Content stays visible before observation and if animation fails.
+            transform: ['translate3d(0, 0.75rem, 0)', 'translate3d(0, 0, 0)'],
           },
           {
-            duration: 0.62,
+            duration: 0.45,
             delay,
             ease: [0.22, 1, 0.36, 1],
           },
